@@ -25,7 +25,7 @@ public class VolcanoService {
         List<List<String>> volcanoes = this.getVolcanoesFromWeb();
 
         return volcanoes.stream()
-                .filter(volcano -> volcano.isEmpty())
+                .filter(volcano -> !volcano.isEmpty())
                 .map(volcano -> new Volcano(volcano.get(0), volcano.get(1), volcano.get(2)))
                 .toList();
     }
@@ -40,6 +40,7 @@ public class VolcanoService {
 
         for (Element row : rows) {
             Elements cells = row.select("td");
+
             if (!cells.isEmpty()) {
                 List<String> rowData = new ArrayList<>();
                 for (Element cell : cells) {
