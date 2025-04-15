@@ -2,7 +2,6 @@ package com.mickaelsouzadev.volcanoesfinder.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,7 +20,11 @@ public class VolcanoService {
         this.globalVolcanismService = globalVolcanismService;
     }
 
-    public List<Volcano> getFormattedVolcanoes() {
+    public List<Volcano> listVolcanoes() {
+        return this.getFormattedVolcanoes();
+    }
+
+    private List<Volcano> getFormattedVolcanoes() {
         List<List<String>> volcanoes = this.getVolcanoesFromWeb();
 
         return volcanoes.stream()
