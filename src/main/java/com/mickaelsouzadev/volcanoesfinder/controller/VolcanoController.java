@@ -20,6 +20,6 @@ public class VolcanoController {
 
     @GetMapping
     public List<Volcano> listVolcanoes() {
-        return service.getFormattedVolcanoes();
+        return service.listVolcanoes();
     }
 }
